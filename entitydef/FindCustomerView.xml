@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-models>
+    <view-entity entity-name="FindCustomerView" package-name="mantle.party">
+        <member-entity entity-alias="PTY" entity-name="Party"/>
+        <member-entity entity-alias="PTRL" entity-name="PartyRole"/>
+        <member-entity entity-alias="PER" entity-name="Person"/>
+        <member-entity entity-alias="PAPCM" entity-name="PartyContactMech"/>
+        <member-entity entity-alias="PADR" entity-name="PostalAddress"/>
+        <member-entity entity-alias="TNPCM" entity-name="PartyContactMech"/>
+        <member-entity entity-alias="TELNM" entity-name="TelecomNumber"/>
+        <member-entity entity-alias="EMPCM" entity-name="PartyContactMech"/>
+        <member-entity entity-alias="EMCM" entity-name="ContactMech"/>
+<!--        <member-entity entity-alias="PCMP" entity-name="PartyContactMechPurpose"/>-->
+
+
+        <!-- Party Role Mapping -->
+        <view-link entity-alias="PTY" rel-entity-alias="PTRL">
+            <key-map field-name="partyId"/>
+        </view-link>
+
+        <view-link entity-alias="PTY" rel-entity-alias="PER">
+            <key-map field-name="partyId"/>
+        </view-link>
+
+        <!-- Address Mapping -->
+        <view-link entity-alias="PTY" rel-entity-alias="PAPCM">
+            <key-map field-name="partyId"/>
+        </view-link>
+
+        <view-link entity-alias="PAPCM" rel-entity-alias="PADR">
+            <key-map field-name="contactMechId"/>
+        </view-link>
+
+        <!-- Telecom Mapping -->
+        <view-link entity-alias="PTY" rel-entity-alias="TNPCM">
+            <key-map field-name="partyId"/>
+        </view-link>
+
+        <view-link entity-alias="TNPCM" rel-entity-alias="TELNM">
+            <key-map field-name="contactMechId"/>
+        </view-link>
+
+        <!-- Email Mapping -->
+        <view-link entity-alias="PTY" rel-entity-alias="EMPCM">
+            <key-map field-name="partyId"/>
+        </view-link>
+
+        <view-link entity-alias="EMPCM" rel-entity-alias="EMCM">
+            <key-map field-name="contactMechId"/>
+        </view-link>
+
+        <!-- Field Aliases -->
+        <alias entity-alias="PTY" name="partyId"/>
+        <alias entity-alias="PTRL" name="roleTypeId"/>
+        <alias entity-alias="PER" name="firstName"/>
+        <alias entity-alias="PER" name="lastName"/>
+        <alias entity-alias="PADR" name="address1"/>
+        <alias entity-alias="PADR" name="city"/>
+        <alias entity-alias="PADR" name="postalCode"/>
+        <alias entity-alias="TELNM" name="areaCode"/>
+        <alias entity-alias="TELNM" name="contactNumber"/>
+        <alias entity-alias="EMCM" name="emailAddress" field="infoString"/>
+<!--        <alias entity-alias="PCMP" name="contactMechPurposeTypeId"/>-->
+    </view-entity>
+</entity-models>

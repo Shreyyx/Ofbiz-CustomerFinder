@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ofbiz.apache.org/Widget-Form" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+<!--    <form name="FindCustomerView" type="single" target="FindCustomerView" default-entity-name="FindCustomerView">-->
+<!--        <field name="noConditionFind"><hidden value="Y"/> &lt;!&ndash; if this isn't there then with all fields empty no query will be done &ndash;&gt;</field>-->
+<!--        <field name="emailAddress" title="${uiLabelMap.emailAddress}"><text-find/></field>-->
+<!--        <field name="firstName" title="${uiLabelMap.firstName}"><text-find/></field>-->
+<!--        <field name="lastName" title="${uiLabelMap.lastName}"><text-find/></field>-->
+<!--        <field name="contactNumber" title="${uiLabelMap.contactNumber}"><text-find/></field>-->
+<!--        <field name="postalAddress" title="${uiLabelMap.postalAddress}"><text-find/></field>-->
+<!--        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button" image-location="/images/icons/magnifier.png"/></field>-->
+<!--    </form>-->
+
+<!--    <form name="ListCustomerView" type="list" list-name="listIt" paginate-target="FindCustomerView" default-entity-name="FindCustomerView" separate-columns="true"-->
+<!--          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">-->
+<!--        <actions>-->
+<!--            &lt;!&ndash; Preparing search results for user query by using OFBiz stock service to perform find operations on a single entity or view entity &ndash;&gt;-->
+<!--            <service service-name="performFind" result-map="result" result-map-list="listIt">-->
+<!--                <field-map field-name="inputFields" from-field="ofbizDemoCtx"/>-->
+<!--                <field-map field-name="entityName" value="OfbizDemo"/>-->
+<!--                <field-map field-name="orderBy" from-field="parameters.sortField"/>-->
+<!--                <field-map field-name="viewIndex" from-field="viewIndex"/>-->
+<!--                <field-map field-name="viewSize" from-field="viewSize"/>-->
+<!--            </service>-->
+<!--        </actions>-->
+<!--        <field name="emailAddress" title="${uiLabelMap.emailAddress}"><display/></field>-->
+<!--        <field name="firstName" title="${uiLabelMap.firstName}" sort-field="true"><display/></field>-->
+<!--        <field name="lastName" title="${uiLabelMap.lastName}" sort-field="true"><display/></field>-->
+<!--        <field name="contactNumber" title="${uiLabelMap.contactNumber}"><display/></field>-->
+<!--        <field name="postalAddress" title="${uiLabelMap.postalAddress}"><display/></field>-->
+<!--    </form>-->
+
+    <form name="AddNewCustomer" type="single" target="AddNewCustomer">
+        <auto-fields-service service-name="createCustomer"/>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}"><submit button-type="button"/></field>
+    </form>
+    <form name="UpdateNewCustomer" type="single" target="UpdateNewCustomer">
+        <auto-fields-service service-name="updateCustomer"/>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}"><submit button-type="button"/></field>
+    </form>
+</forms>
